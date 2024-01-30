@@ -7,3 +7,6 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Chatroom.create(name: "general")
+User.create(email: "sebastien@lewagon.org", username: "Sebastien", password: "123456")
+User.create(email: "boris@lewagon.org", username: "Boris", password: "123456")
