@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_30_142346) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_31_145121) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appointements", force: :cascade do |t|
     t.bigint "victim_id", null: false
     t.bigint "doctor_id", null: false
-    t.date "date"
+    t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["doctor_id"], name: "index_appointements_on_doctor_id"
@@ -35,6 +35,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_142346) do
     t.string "field"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_doctors_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -75,6 +77,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_142346) do
 
   add_foreign_key "appointements", "doctors"
   add_foreign_key "appointements", "victims"
+  add_foreign_key "doctors", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "victims", "users"
