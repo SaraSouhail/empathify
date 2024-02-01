@@ -1,8 +1,11 @@
 <h1>Chatrooms</h1>
 <ul class="list-group">
-<% @chatrooms.each do |chatroom| %>
+<% @public_chatrooms.each do |chatroom| %>
 <li>
     <%= link_to chatroom.name, chatroom_path(chatroom), class: "list-group-item mb-3 chatroom-btn" %>
 </li>
 <%end%>
+<li>
+    <%= link_to @user_chatrooms.name, chatroom_path(@user_chatrooms), class: "list-group-item mb-3 chatroom-btn" %>
+</li>
 </ul>

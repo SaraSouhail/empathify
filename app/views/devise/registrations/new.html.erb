@@ -4,9 +4,37 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email,
+    <%= f.input :first_name,
                 required: true,
                 autofocus: true,
+                input_html: { autocomplete: "first_name" }%>
+    <%= f.input :last_name,
+                required: true,
+                input_html: { autocomplete: "last_name" }%>
+    <%= f.input :username,
+                required: true,
+                input_html: { autocomplete: "username" }%>
+    <%= f.input :address,
+                required: true,
+                input_html: { autocomplete: "address" }%>
+    <%= f.input :country,
+                required: true,
+                input_html: { autocomplete: "country" }%>
+    <%= f.input :city,
+                required: true,
+                input_html: { autocomplete: "city" }%>
+    <%= f.label :bullying_type %>
+    <%= f.select :bullying_type,
+           options_for_select(["General", "Physical Bullying", "Verbal Bullying", "Social Bullying", "Cyberbullying"]),
+           { include_blank: true },
+           required: true,
+           autofocus: true,
+           input_html: { autocomplete: "bullying_type" } %>
+    <%= f.input :phone_number,
+                required: true,
+                input_html: { autocomplete: "phone_number" }%>
+    <%= f.input :email,
+                required: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
