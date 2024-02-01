@@ -3,7 +3,7 @@
 <div class="d-flex">
 <% @doctors.each do |doctor| %>
 <div class="me-3 border border-solid p-5">
-    <h4><%= link_to doctor.user.username, doctor_path(doctor), class:"text-success"%></h4>
+    <h4 class="text-success"><%= doctor.first_name%></h4>
     <p><strong><%= doctor.field%></strong></p>
     <p><strong><%= doctor.experience_years%></strong> of experience</p>
     <button class="btn btn-success">Make appointement</button>
@@ -20,7 +20,7 @@
                 discard_day: true %>
 </div>
   <div class="actions">
-    <%= form.button :submit, 'Schedule Appointment' %>
+    <%= form.button :submit, 'submit',class:"btn btn-primary" %>
   </div>
 <% end %>
 <%end%>

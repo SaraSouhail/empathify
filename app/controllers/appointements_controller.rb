@@ -1,10 +1,6 @@
 class AppointementsController < ApplicationController
   def index
-    @appointements = Appointement.all
-  end
-
-  def show
-    @appointement = Appointement.find(params[:id])
+    @appointements = current_user.appointements
   end
 
   def new
@@ -13,20 +9,24 @@ class AppointementsController < ApplicationController
 
   def create
     @appointement = Appointement.new(appointement_params)
-    @appointement.victim = current_user.victim
+    @appointement.user = current_user
     @appointement.doctor = Doctor.find(params[:doctor_id])
-    @appointement.save!
+    if @appointement.save
+      redirect_to appointements_index_path
+    else
+      render :new
+    end
   end
 
-  def edit
-  end
-
-  def update
+  def destroy
+    @appointement = Appointement.find(params[:id])
+    @appointement.destroy
+    redirect_to appointements_index_path
   end
 
   private
 
   def appointement_params
-    params.require(:appointement).permit(:date,:time, :doctor_id, :victim_id)
+    params.require(:appointement).permit(:date, :doctor_id, :victim_id)
   end
 end

@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :doctors, only: [:index, :show] do
     resources :appointements, only: [:index, :show, :new, :create]
   end
+  resources :appointements, only: [:destroy]
 end
