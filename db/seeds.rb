@@ -7,11 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Chatroom.create(name: "general")
-Chatroom.create(name: "Physical bullying")
-Chatroom.create(name: "Cyberbullying")
-Chatroom.create(name: "Verbal bullying")
-Chatroom.create(name: "Harassment")
+Chatroom.create(name: "general", chatroom_type: "public")
+Chatroom.create(name: "Physical bullying", chatroom_type: "private")
+Chatroom.create(name: "Cyberbullying", chatroom_type: "private")
+Chatroom.create(name: "Verbal bullying", chatroom_type: "private")
+Chatroom.create(name: "Harassment", chatroom_type: "private")
 User.create(email: "reda@com", username: "Reda", password: "123456", first_name: "Reda", last_name: "Aboulouafa", address: "Rue de la Nassim", country: "Morocco", city: "Casablanca", phone_number: "0612345678", bullying_type: "Physical bullying")
 User.create(email: "sara@com", username: "Sara", password: "123456", first_name: "Sara", last_name: "Souhail", address: "Rue de la sbata", country: "Morocco", city: "Casablanca", phone_number: "0615164579", bullying_type: "Cyberbullying")
 User.create(email: "hamza@com", username: "Hamza", password: "123456", first_name: "Hamza", last_name: "khalid", address: "Rue de la berrechid", country: "Morocco", city: "Casablanca", phone_number: "0612345678", bullying_type: "Verbal bullying")
