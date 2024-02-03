@@ -1,13 +1,51 @@
+<div style="margin-left: 385px;">
 <h1>all my Appointements</h1>
-<%@appointements.each do |appointement|%>
-    <p>date : <%=appointement.date%></p>
-    <p>doctor s name: <%=appointement.doctor.first_name%> <%=appointement.doctor.last_name%></p>
-    <p>doctor s field<%=appointement.doctor.field%></p>
-    <p><%=appointement.doctor.experience_years%> of experience</p>
-    <p>doctor s phone: <%=appointement.doctor.phone_number%></p>
-    <p>doctor s address <%=appointement.doctor.address%></p>
-
-<button class="btn btn-danger"><%= link_to "Delete this appointement", appointement_path(appointement)  ,  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: "color: white; text-decoration: none;" %></button>
-
-
-<%end%>
+<div class="card-container" style="display: flex; justify-content: center;">
+  <% if @appointements.empty? %>
+    <p> <h3> No appointments exist</p>
+  <% else %>
+    <% @appointements.each do |appointement| %>
+      <div class="card" style="background-color: white; padding: 10px; margin: 10px;  background-color: #0A1D56; color: white; height: 600px; padding: 50px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <p> <strong> date:</strong> <%= appointement.date %></p>
+        <p><strong>doctor's name:</strong> <%= appointement.doctor.first_name %> <%= appointement.doctor.last_name %></p>
+        <p> <strong>doctor's field:</strong> <%= appointement.doctor.field %></p>
+        <p> <strong>Experience :</strong> <%= appointement.doctor.experience_years %> of experience in the domaine</p>
+        <p> <strong>doctor's phone:</strong> <%= appointement.doctor.phone_number %></p>
+        <p> <strong>doctor's address:</strong> <%= appointement.doctor.address %></p>
+        <button class="btn btn-danger">
+          <%= link_to "Delete this appointment", appointement_path(appointement), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, style: "color: white; text-decoration: none; border-radius:6px;" %>
+        </button>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<button class="btn btn-primary button1">
+          <%= link_to "Make an appointment", doctors_index_path, style: "color: white; text-decoration: none; " %>
+</button>
+</div>
+<style>
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+h3 {
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 100px;
+}
+body{
+  background-color: #E8ECEB;
+}
+.button1 {
+ margin:0 auto;
+ text-align: center;
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+}
+</style>

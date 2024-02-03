@@ -1,7 +1,11 @@
-<div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.username %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+<div class="chatroom-message" id="message-<%= message.id %>">
+
+<% if @previous_date != Date.today %>
+  <i class="chatroom-date"><%= Date.today.strftime("%a %b %e") %></i>
+  <% @previous_date = Date.today %>
+<% end %>
+  <p><strong><%= message.user.username %></strong>
+    <i><%= message.created_at.strftime("%l:%M %p") %></i></p>
+  <p class= "chatroom-content"><%= message.content %></p>
+<hr>
 </div>

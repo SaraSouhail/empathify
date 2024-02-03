@@ -1,26 +1,117 @@
-<h1>Doctors</h1>
-
-<div class="d-flex">
-<% @doctors.each do |doctor| %>
-<div class="me-3 border border-solid p-5">
-    <h4 class="text-success"><%= doctor.first_name%></h4>
-    <p><strong><%= doctor.field%></strong></p>
-    <p><strong><%= doctor.experience_years%></strong> of experience</p>
-    <button class="btn btn-success">Make appointement</button>
- </div>
+<h1 class="hamza" style="margin-top:80px">Doctors</h1>
+<h2 class="hamza1"> please if you want a doctor make an appointment </h2>
+<div class="d-flex justify-content-center" >
+  <% @doctors.each do |doctor| %>
+    <div class="card me-3" style="width: 18rem; background-color: #0A1D56; color: white; height: 500px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); border :none;">
+      <img src="" class="card-img-top hell" alt="Doctor Profile Image" >
+      <div class="card-body d-flex flex-column justify-content-end">
+        <h4 class="card-title text-success"><%= doctor.first_name  %></h4>
+        <p class="card-text"><strong><%= doctor.field %></strong></p>
+        <p class="card-text"><strong><%= doctor.experience_years %></strong> of experience</p>
+        <button class="btn btn-primary align-self-center mt-3" style="background-color: #007BFF; border-radius: 5px;" onclick="toggleForm(<%= doctor.id %>)">
+          Make appointment
+        </button>
+      </div>
+      <%= simple_form_for [doctor, @appointement], html: { id: "form-#{doctor.id}", style: 'display: none;' } do |form| %>
+        <div class="field">
+          <%= form.input :date,
+                        as: :string,
+                        input_html: { data: { controller: "datepicker" }, class: "h", disabled: true },
+                        start_year: Date.current.year,
+                        end_year: Date.current.year + 1,
+                        discard_day: true %>
+        </div>
+        <div class="actions">
+          <%= form.button :submit, 'send ', class: "btn btn-primary botona", disabled: true %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
-<%= simple_form_for [doctor, @appointement] do |form| %>
-
-<div class="field">
-  <%= form.input :date,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } },
-                start_year: Date.current.year,
-                end_year: Date.current.year + 1,
-                discard_day: true %>
-</div>
-  <div class="actions">
-    <%= form.button :submit, 'submit',class:"btn btn-primary" %>
-  </div>
-<% end %>
-<%end%>
+<script>
+  function toggleForm(doctorId) {
+    const form = document.getElementById(`form-${doctorId}`);
+    const dateInput = form.querySelector('.h');
+    const submitButton = form.querySelector('.botona');
+    if (form.style.display === 'none') {
+      form.style.display = 'block';
+      dateInput.disabled = false;
+      submitButton.disabled = false;
+      // Disable other cards
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (card !== form.parentElement) {
+          card.style.pointerEvents = 'none';
+          card.style.opacity = '0.5';
+          card.style.height = '500px'; // Add height for all cards
+        }
+      });
+      // Add event listener to enable cards when clicking outside of date input
+      document.addEventListener('click', enableCards);
+    } else {
+      form.style.display = 'none';
+      dateInput.disabled = true;
+      submitButton.disabled = true;
+      // Enable other cards
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (card !== form.parentElement) {
+          card.style.pointerEvents = 'auto';
+          card.style.opacity = '1';
+          card.style.height = '500px'; // Reset height for all cards
+        }
+      });
+      // Remove event listener to enable cards when clicking outside of date input
+      document.removeEventListener('click', enableCards);
+    }
+  }
+  function enableCards(event) {
+    const dateInput = document.querySelector('.h');
+    const cards = document.querySelectorAll('.card');
+    if (!dateInput.contains(event.target)) {
+      cards.forEach(card => {
+        card.style.pointerEvents = 'auto';
+        card.style.opacity = '1';
+        card.style.height = '500px'; // Reset height for all cards
+      });
+    }
+  }
+</script>
+<style>
+.hell{
+  width: 100%;
+  border-radius: 50%;
+}
+body{
+  background-color: #E8ECEB;
+}
+.h {
+  width: 200px;
+  text-align: center;
+  margin-left: 50px;
+}
+.botona {
+  display: flex;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 120px;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hamza{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.hamza1{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+</style>

@@ -1,0 +1,38 @@
+.container-chatroom {
+  margin-left: 400px;
+  margin-top: 100px;
+  padding: 10px;
+  background-color: #ffffff;
+  .chatroom-name {
+    margin-left: 30px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .chatroom-user-messages{
+    .chatroom-date{
+      margin-left: 200px;
+      color: white;
+      background-color: #18345E;
+      border-radius: 10px;
+      box-shadow: 3px 3px 3px #c3c3c3;
+      padding: 4px 50px;
+    }
+
+    .chatroom-message {
+      width: 800px;
+      &:hover {
+        background-color: rgb(194, 224, 228);
+      }
+    }
+
+    .chatroom-content {
+      width: 800px;
+      margin-left: 10px;
+      font-family:Arial, Helvetica, sans-serif;
+      color: rgb(8, 8, 86);
+    }
+
+
+  }
+}
