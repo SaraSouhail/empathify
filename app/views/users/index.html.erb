@@ -1,0 +1,49 @@
+<h1 style="margin-left: 900px; margin-top: 100px;">Users</h1>
+<div class="container">
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-lg-4  user-container">
+        <div class="d-flex">
+        <div class="profile-pic"><%= image_tag "sky.jpg", class: "rounded-circle",style:"width:50px; height:50px;" %></div>
+        <div class="user-infos">
+          <%= link_to user_path(user) do %>
+            <h5 class="text-primary"><%= user.username %></h5>
+          <% end %>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, amet?</p>
+        </div>
+        </div>
+        <button class="btn btn-primary add-friend">Add friend</button>
+      </div>
+    <% end %>
+  </div>
+</div>
+<style>
+  .user-container {
+    margin-right: 20px;
+    background-color: #fafafa;
+    border: 1px solid #4385f5;
+    border-radius: 10px;
+    width: 300px;
+    padding: 10px;
+
+  }
+
+  .container {
+    margin-left: 400px;
+  }
+
+  .profile-pic {
+    margin-right: 20px;
+  }
+
+  .add-friend {
+    width: 250px;
+    margin-left: 14px;
+    border-radius: 7px;
+  }
+  .add-friend:hover {
+    background-color: yellow;
+    color: #4385f5;
+    border: none;
+  }
+</style>

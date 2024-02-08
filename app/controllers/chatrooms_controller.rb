@@ -4,11 +4,13 @@ class ChatroomsController < ApplicationController
     @chatrooms = Chatroom.all
     @public_chatrooms = @chatrooms.select { |chatroom| chatroom.chatroom_type == "public" }
     @user_chatrooms = @chatrooms.find { |chatroom| chatroom.name == current_user.bullying_type }
+    @threads_chatrooms = @chatrooms.select { |chatroom| chatroom.chatroom_type == "thread" }
   end
 
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    @chatroom_name = @chatroom.name
   end
 
   def new
