@@ -1,38 +1,235 @@
 .container-chatroom {
+  max-width: fit-content;
   margin-left: 400px;
-  margin-top: 100px;
+  margin-top: 40px;
   padding: 10px;
-  background-color: #ffffff;
-  .chatroom-name {
-    margin-left: 30px;
-    font-size: 30px;
-    font-weight: bold;
-  }
+  display: flex;
+  flex-direction: column;
 
-  .chatroom-user-messages{
-    .chatroom-date{
-      margin-left: 200px;
-      color: white;
-      background-color: #18345E;
-      border-radius: 10px;
+
+  .chatroom-header {
+    margin-left: -30px;
+    width: 100%;
+    position: fixed;
+    display:flex;
+    box-shadow: 5px 5px 5px #c3c3c3;
+    padding: 10px;
+    background-color: var(--bs-body-bg);
+
+    .chatroom-name {
+      margin-top: -3px;
+      padding: 5px 10px 5px 10px;
+      margin-left: 60px;
+      font-size: 30px;
+      font-weight: bold;
+      border-radius: 15px;
       box-shadow: 3px 3px 3px #c3c3c3;
-      padding: 4px 50px;
+      background-color: white;
     }
-
-    .chatroom-message {
-      width: 800px;
-      &:hover {
-        background-color: rgb(194, 224, 228);
+    .chatroom-users-pic-count {
+      height: fit-content;
+      width: fit-content;
+      padding: 7px 10px;
+      display: flex;
+      border: 1px solid #0A1D56;
+      border-radius: 15px;
+      box-shadow: 3px 3px 3px #c3c3c3;
+      position: absolute;
+      margin-left: 950px;
+      margin-top: 3px;
+      cursor: pointer;
+      &:hover{
+        background-color: #e4e4e4;
+      }
+      .chatroom-3-user-picture{
+        img{
+          box-shadow: 3px 3px 3px #c3c3c3;
+          width: 30px;
+          height: 30px;
+          border-radius: 20%;
+        }
+      }
+      a{
+        text-decoration: none;
+        color: #1b3992;
+      }
+      .chatroom-user-count{
+        margin-left:10px;
+        font-size: 20px;
+        color: #0A1D56;
       }
     }
 
-    .chatroom-content {
-      width: 800px;
-      margin-left: 10px;
-      font-family:Arial, Helvetica, sans-serif;
-      color: rgb(8, 8, 86);
+  }
+
+
+  .chatroom-user-messages{
+    width: 100%;
+    flex-grow: 1;
+    margin-top: 85px;
+    margin-bottom: 100px;
+    .chatroom-date{
+      margin-left: 450px;
+      color: white;
+      background-color: #0A1D56;
+      border-radius: 10px;
+      box-shadow: 5px 5px 5px #c3c3c3;
+      padding: 4px 50px;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      &:hover{
+        text-decoration: 1px underline ;
+      }
     }
 
+    .chatroom-message {
+      margin-bottom:15px ;
+      width: 1150px;
+      padding: 10px;
+      border-radius: 15px;
+      box-shadow: 5px 5px 5px #c3c3c3;
+      background-color: white;
+      cursor: pointer;
+      &:hover{
+        background-color: #eeecec;
+      }
+    }
+    .chatroom-message-colored {
+      margin-bottom:15px ;
+      width: 1150px;
+      padding: 10px;
+      border-radius: 15px;
+      box-shadow: 5px 5px 5px #c3c3c3;
+      background-color: #f0f8ff;
+      cursor: pointer;
+      &:hover{
+        background-color: #e3eff9;
+      }
+    }
+    .chatroom-user-picture{
+      margin-right: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 20%;
+      box-shadow: 5px 5px 5px #c3c3c3;
+    }
+    .chatroom-content {
+      font-size: 20px;
 
+      margin-left: 50px;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow: hidden;
+      word-wrap: break-word;
+    }
+  }
+
+  .chatroom-send-message{
+    position: fixed;
+    bottom: 0;
+    padding: 5px;
+    background-color: var(--bs-body-bg);
+    margin-left: -10px;
+
+    .chatroom-input-message{
+      margin-top: 10px;
+      width: 1090px;
+      height: 70px;
+      background-color: white;
+
+    }
+  .chatroom-send-btn{
+    height: 30%;
+    border: none;
+    margin-top: 23px;
+    margin-left: 10px;
+    color:white;
+  }
+}
+}
+// poopup ------------------------------------------
+
+.container-users-chatroom {
+  display: none;
+  position: fixed;
+  width: 600px;
+  max-width: 600px;
+  height: fit-content;
+  max-height: 480px;
+  margin-top: 60px;
+  margin-left: 280px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #f4fdff;
+  padding: 0px 30px 30px 30px;
+  border: 2px solid #164bcf;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width:thin;
+  scrollbar-color: #2d65f2 #f1f6fa;
+
+  .chatroom-popup-title{
+    position: fixed;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #0A1D56;
+    background-color: white;
+    padding: 30px 10px 30px 10px;
+  }
+  i {
+    font-size: 30px;
+    position: fixed;
+    margin-left: 525px;
+    margin-top: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    &:hover{
+      color: #ff0000;
+    }
+  }
+  .users-chatroom{
+    margin-top: 110px;
+    margin-left: 30px;
+    max-width: 300px;
+
+    .chatroom-user{
+      display: flex;
+      background-color: rgb(242, 242, 242);
+      border: 1px solid #d3d3d3;
+      border-radius: 15px;
+      padding-top: 10px;
+      padding: 5px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      &:hover{
+        background-color: #e4e4e4;
+      }
+      img {
+        box-shadow: 3px 3px 3px #c3c3c3;
+        width: 60px;
+        height: 60px;
+        border-radius: 20%;
+      }
+      .username-session-popup{
+        margin-left: 10px;
+        margin-top: 5px;
+        a {
+          text-decoration: none;
+          color: black;
+          &:hover{
+            text-decoration: 1px underline ;
+          }
+        }
+        .username-popup{
+          font-size: 20px;
+        }
+        .session-in-popup{
+          margin-top: 0px;
+        }
+      }
+
+    }
   }
 }

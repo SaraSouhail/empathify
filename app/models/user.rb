@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :messages
   has_many :appointements, dependent: :destroy
   has_many :doctors, through: :appointements
-
+  has_one_attached :photo
   #Search
   include PgSearch::Model
   pg_search_scope :search_by_first_name_and_last_name_and_username,
