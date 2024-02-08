@@ -1,29 +1,41 @@
 <div style="margin-left: 385px;">
-<h1>all my Appointements</h1>
-<div class="card-container" style="display: flex; justify-content: center;">
-  <% if @appointements.empty? %>
-    <p> <h3> No appointments exist</p>
-  <% else %>
-    <% @appointements.each do |appointement| %>
-      <div class="card" style="background-color: white; padding: 10px; margin: 10px;  background-color: #0A1D56; color: white; height: 600px; padding: 50px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-        <p> <strong> date:</strong> <%= appointement.date %></p>
-        <p><strong>doctor's name:</strong> <%= appointement.doctor.first_name %> <%= appointement.doctor.last_name %></p>
-        <p> <strong>doctor's field:</strong> <%= appointement.doctor.field %></p>
-        <p> <strong>Experience :</strong> <%= appointement.doctor.experience_years %> of experience in the domaine</p>
-        <p> <strong>doctor's phone:</strong> <%= appointement.doctor.phone_number %></p>
-        <p> <strong>doctor's address:</strong> <%= appointement.doctor.address %></p>
-        <button class="btn btn-danger">
-          <%= link_to "Delete this appointment", appointement_path(appointement), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, style: "color: white; text-decoration: none; border-radius:6px;" %>
-        </button>
-      </div>
+  <h1>All My Appointments</h1>
+  <div class="card-container d-flex flex-wrap justify-content-center">
+    <% if @appointements.empty? %>
+      <h3>No appointments exist</h3>
+    <% else %>
+      <% @appointements.each_slice(3) do |appointments_row| %>
+        <div class="row" style="width:5000px;">
+          <% appointments_row.each do |appointement| %>
+            <div class="col-md-4 mb-4">
+              <div class="card" style=" margin-right:background-color: white; padding: 10px; margin: 10px; background-color: #0A1D56; color: white; height: 600px; padding: 50px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding-top:100px; ">
+                <p><strong style="color:yellow;">Date:</strong> <%= appointement.date %></p>
+                <p><strong style="color:yellow;">Doctor's Name:</strong> <%= appointement.doctor.first_name %> <%= appointement.doctor.last_name %></p>
+                <p><strong style="color:yellow;">Doctor's Field:</strong> <%= appointement.doctor.field %></p>
+                <p><strong style="color:yellow;">Experience:</strong> <%= appointement.doctor.experience_years %> years of experience in the domain</p>
+                <p><strong style="color:yellow;">Doctor's Phone:</strong> <%= appointement.doctor.phone_number %></p>
+                <p><strong style="color:yellow;">Doctor's Address:</strong> <%= appointement.doctor.address %></p>
+                <button class="btn btn-danger danger">
+                  <%= link_to "Delete this appointment", appointement_path(appointement), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"danger1", style: "color: white; text-decoration: none; border-radius: 6px;" %>
+                </button>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-<button class="btn btn-primary button1">
-          <%= link_to "Make an appointment", doctors_index_path, style: "color: white; text-decoration: none; " %>
-</button>
+  </div>
+  <button class="btn btn-primary button1">
+    <%= link_to "Make an appointment", doctors_index_path, style: "color: white; text-decoration: none;" %>
+  </button>
 </div>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+body{
+  font-family: 'Roboto Mono', monospace;
+}
+.card{
+}
 h1 {
   display: flex;
   justify-content: center;
@@ -47,5 +59,9 @@ body{
   justify-content: center;
   align-items: center;
   border-radius: 6px;
+}
+.danger{
+margin-top: 10px;
+border-radius:6px;
 }
 </style>

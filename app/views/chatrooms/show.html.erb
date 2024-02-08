@@ -1,18 +1,82 @@
 <div class="container-chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-<p class="chatroom-name">#<%= @chatroom.name %></p>
+<div class="chatroom-header">
+  <div class="chatroom-name"># <%= @chatroom.name %></div>
+
+  <div class="chatroom-users-pic-count ">
+
+    <div class= "chatroom-3-user-picture" title="see all members of # <%=@chatroom.name%>">
+      <%= image_tag "profile img.avif", alt: "all members" %>
+      <%= image_tag "profile img.avif", alt: "all members" %>
+      <%= image_tag "profile img.avif", alt: "all members" %>
+    </div>
+
+    <div class="chatroom-user-count">
+      <%= @users.count %>
+    </div>
+
+  </div>
+
+</div>
 
 <div class="chatroom-user-messages" data-chatroom-subscription-target="messages">
   <% @chatroom.messages.each_with_index do |message, index| %>
+
     <%= render "messages/message", message: message, index: index %>
   <% end %>
 </div>
-
+<div class="chatroom-send-message">
   <%= simple_form_for [@chatroom, @message],
-  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" },class: "d-flex"} do |f|%>
+    html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex rounded-pill" } do |f| %>
     <%= f.input :content,
       label: false,
       placeholder: "Type a message ##{@chatroom.name} ...",
-      wrapper_html: {class: "flex-grow-1"}%>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-<% end %>
+      wrapper_html: { class: "flex-grow-1" },
+      input_html: { class: " chatroom-input-message rounded-pill form-control" } %>
+    <%= f.submit "send", class: "chatroom-send-btn btn btn-primary rounded-pill"  %>
+  <% end %>
 </div>
+
+<div class="container-users-chatroom">
+  <h1 class="chatroom-popup-title"># <%= @chatroom.name %> members :</h1>
+   <%# close the window %>
+   <i class="fa fa-close" id="close-btn"></i>
+  <div class="users-chatroom">
+    <% @users.each do |user| %>
+      <div class="chatroom-user">
+        <div class="img-popup"><%= image_tag "profile img.avif", alt: "all members" %></div>
+        <div class="username-session-popup">
+        <%= link_to root_path do %>
+          <strong class="username-popup"><%= user.username %></strong>
+          <% end %>
+          <%# if user_signed_in? && session[:user_id] == user.id  %>
+          <p class="session-in-popup" style="color:green"><%= user.bullying_type %></p>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+<script>
+users_chatroom = document.querySelector(".chatroom-users-pic-count");
+
+users_chatroom.addEventListener("click", (event) => {
+users = document.querySelector(".container-users-chatroom");
+users.style.display = "block";
+});
+
+close_btn = document.querySelector("#close-btn");
+close_btn.addEventListener("click", (event) => {
+  console.log("close btn is clicked");
+  users.style.display = "none";
+});
+
+
+
+
+</script>

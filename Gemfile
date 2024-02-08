@@ -77,3 +77,5 @@ group :test do
 end
 gem 'country_select'
 gem 'iso3166_ru', '~> 0.2.0'
+gem "pg_search"
+gem "cloudinary"

@@ -67,8 +67,10 @@
     @chatrooms = Chatroom.all
     @public_chatrooms = @chatrooms.select { |chatroom| chatroom.chatroom_type == "public" }
     @user_chatrooms = @chatrooms.find { |chatroom| chatroom.name == current_user.bullying_type }
+    @threads_chatrooms = @chatrooms.select { |chatroom| chatroom.chatroom_type == "thread" }
 %>
-<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon p-0 fixed-top" style="background-color: #18345E;">
+
+<div class="  navbar navbar-expand-sm navbar-dark navbar-lewagon p-0 fixed-top" style="background-color: #181F6D;">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
@@ -78,79 +80,198 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <form class="form-inline d-flex" style="margin-right: 370px;">
-    <input class="form-control mr-sm-2 border-0 rounded" type="search" placeholder="Search" aria-label="Search" style="width: 700px; background-color: #E4F0FF;">
-    <button class="btn btn-dark my-2 my-sm-0 border-0" type="submit"><i class="fas fa-search"></i></button>
-  </form>
+    <div style="margin-right: 400px">
+    <%# <form class="form-inline d-flex" style="margin-right: 370px;"> %>
+    <%= form_with url: users_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control mr-sm-2 border-0 rounded",
+            placeholder: "Search",
+            style: "width: 700px; background-color: #E4F0FF;",
+            aria: {label: "Search"}
+        %>
 
+      <%= button_tag type: 'submit', class: "btn btn-dark my-2 my-sm-0 border-0", id: "register-button" do %>
+      <i class="fas fa-search" aria-hidden="true"></i>
+
+
+    <% end %>
+    <% end %>
+    </div>
   </div>
 </div>
 <div class="d-flex" style="margin-right: 385px">
-<div class="sidebar-menu" style="background-color: #18345E">
-<%= link_to root_path, class: "nav-link" do%>
+
+<div class="sidebar-menu" style="background-color: #181F6D">
+<%= link_to root_path, class: "nav-link", title:"Home" do%>
   <div class="sidebar-menu-item d-flex">
-    <i class="fa-solid fa-home mb-3 fa-2x"></i>
+    <i class="fa-solid fa-home mb-3 fa-2x" style="<%= request.path == root_path ? 'color: yellow;' : nil %>"></i>
   </div>
 <%end%>
 
-<%= link_to chatrooms_path, class: "nav-link" do%>
+<%= link_to users_path, class: "nav-link", title: "Users" do%>
   <div class="sidebar-menu-item">
-    <i class="fa-solid fa-user-group mb-3 fa-2x"></i>
+    <i class="fa-solid fa-user-group mb-3 fa-2x" style="<%= request.path == users_path ? 'color: yellow;' : nil %>"></i>
   </div>
 <%end%>
 
-<%= link_to doctors_path, class: "nav-link" do%>
+<%= link_to doctors_path, class: "nav-link", title: "Doctors" do%>
   <div class="sidebar-menu-item">
-  <i class="fa-solid fa-user-doctor mb-3 fa-2x ms-1"></i>
+  <i class="fa-solid fa-user-doctor mb-3 fa-2x ms-1" style="<%= request.path == doctors_path ? 'color: yellow;' : nil %>"></i>
   </div>
 <%end%>
 
-<%= link_to appointements_index_path, class: "nav-link" do%>
+<%= link_to appointements_index_path, class: "nav-link", title: "Appointements" do%>
   <div class="sidebar-menu-item">
-  <i class="fa-solid fa-calendar-check mb-3 fa-2x ms-1"></i>
+  <i class="fa-solid fa-calendar-check mb-3 fa-2x ms-1" style="<%= request.path == appointements_index_path ? 'color: yellow;' : nil %>"></i>
   </div>
   <%end%>
 
-<%= link_to new_chatroom_path, class: "nav-link" do%>
+<%= link_to new_chatroom_path, class: "nav-link", title: "Create a chatroom" do%>
   <div class="sidebar-menu-item">
-  <i class="fa-solid fa-circle-plus mb-3 fa-2x"></i>
+  <i class="fa-solid fa-circle-plus mb-3 fa-2x" style="<%= request.path == new_chatroom_path ? 'color: yellow;' : nil %>"></i>
   </div>
   <%end%>
 
   <div class="sidebar-menu-item" style="margin-top: 300px">
-  <i class="fa-solid fa-user mb-3 fa-2x ms-1" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+  <i class="fa-solid fa-user mb-3 fa-2x ms-1" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Profile"></i>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", "#", class: "dropdown-item ms-1 p-1" %>
+              <%= link_to "Profile", profile_path , class: "dropdown-item ms-1 p-1" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item ms-1 p-1" %>
             </div>
   </div>
 </div>
 
 <div class="sidebar-menu-options">
-  <div class="sidebar-option-item d-flex rounded-start-4 ps-3">
-    <h5><i class="fa-solid fa-people-group me-3 py-2" style="color: #A6ABBD;"></i>Chatgroups</h5>
+  <div class="sidebar-option-item d-flex rounded-start-4 ms-3 mt-4">
+    <h5><i class="fa-solid fa-people-group me-3 py-1" style="color: #A6ABBD;"></i>Chatgroups</h5>
   </div>
   <% @public_chatrooms.each do |chatroom| %>
   <%= link_to chatroom_path(chatroom) do%>
-    <h5 class="sidebar-option-item p-1 ms-4 group-title"># <%= chatroom.name %> </h5>
+    <h5 class="group-name sidebar-option-item p-1 ms-4 group-title" style="<%= @chatroom.present? && @chatroom.name == chatroom.name ? 'background-color: #4385F5; color: white;' : nil %>"># <%= chatroom.name %> </h5>
     <%end%>
     <%end%>
-    <%= link_to chatroom_path(current_user.bullying_type) do%>
-    <h5 class="sidebar-option-item p-1 ms-4 group-title"># <%= current_user.bullying_type %> </h5>
+    <%= link_to chatroom_path(@user_chatrooms) do%>
+    <h5 class="group-name sidebar-option-item p-1 ms-4 group-title" style="<%= @chatroom.present? && @chatroom.name == @user_chatrooms.name ? 'background-color: #4385F5; color: white;' : nil %>"># <%= current_user.bullying_type %> </h5>
     <%end%>
+    <hr style="color: gray">
   <div class="sidebar-option-item d-flex  ps-3">
-    <h5><i class="fa-solid fa-newspaper me-3 py-2" style="color: #A6ABBD;"></i>Threads</h5>
+    <h5><i class="fa-solid fa-newspaper me-3 py-1" style="color: #A6ABBD;"></i>Threads</h5>
   </div>
-    <h5 class="sidebar-option-item p-1 ms-4 group-title"># general</h5>
-    <h5 class="sidebar-option-item p-1 ms-4 group-title"># memes</h5>
-    <h5 class="sidebar-option-item p-1 ms-4 group-title"># blogs </h5>
+    <% @threads_chatrooms.each do |chatroom| %>
+  <%= link_to chatroom_path(chatroom) do%>
+    <h5 class="group-name sidebar-option-item p-1 ms-4 group-title" style="<%= @chatroom.present? && @chatroom.name == chatroom.name ? 'background-color: #4385F5; color: white;' : nil %>"># <%= chatroom.name %> </h5>
+    <%end%>
+    <%end%>
+    <hr style="color: gray">
 </div>
 </div>
 <% else %>
 
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+<nav>
+  <div class="navbar navbar-expand-sm navbar-dark navbar-lewagon p-0" style="background-color: #181F6D">
+
+  <div class="container-fluid" >
+  <div class="logo">
+  <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "logo-no-background.png" %>
+    <% end %>
+  </div>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+         <li class="nav-item active">
+          <%= link_to "Home", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About Us", about_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Customize", "#", class: "nav-link" %>
+        </li>
+      </ul>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
+          <li class="nav-item active">
+            <%= link_to "+ New Channel", new_chatroom_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Chatrooms", chatrooms_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Doctors", doctors_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+          </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login/Sign Up", new_user_session_path, class: "nav-link", class:"btn2" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+</nav>
+
+
+
+
+<footer>
+    <div class="footer-content">
+        <p>Get the freshest Empathfiy news</p>
+        <form>
+            <input type="email" name="email" class="input" placeholder="Enter email here">
+            <button type="submit" class="btnn">Subscribe</button>
+        </form>
+        <p>© 2023 Empathify, LLC. All Rights Reserved.</p>
+    </div>
+    <div class="footer-links">
+        <ul>
+            <li><a href="#">Choose region</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">Accessibility Statement
+            <li><a href="#">Marketing to Children</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+        </ul>
+    </div>
+</footer>
+
+<style>
+.btnn{
+  width:100px;
+}
+.input{
+  width: 300px;
+  background-color:white;
+  margin-top:12px;
+}
+</style>
+
+
+
+
+
 <% end %>
 
 <footer>

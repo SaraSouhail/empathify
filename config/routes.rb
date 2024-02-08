@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get 'about', to: 'pages#about', as: :about
+  get "profile", to: "pages#profile"
   resources :chatrooms, only: [:index, :show, :new, :create] do
     resources :messages, only: :create
   end
@@ -19,4 +20,5 @@ Rails.application.routes.draw do
     resources :appointements, only: [:index, :show, :new, :create]
   end
   resources :appointements, only: [:destroy]
+  resources :users, only: [:index, :show]
 end

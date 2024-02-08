@@ -1,0 +1,104 @@
+<div style="margin-left: 385px; margin-top:100px; ">
+    <div class="profile-card" >
+<div class="description" >
+      <!-- Display user information in the card -->
+      <p style="text-align: justify; "><strong style="color:yellow;">Email:</strong> <%= @user.email %></p>
+      <p style="text-align: justify;"><strong style="color:yellow;">First Name:</strong> <%= @user.first_name %></p>
+      <p style="text-align: justify;"><strong style="color:yellow;">Last Name:</strong> <%= @user.last_name %></p>
+      <p style="text-align: justify;"><strong style="color:yellow;">Address: </strong><%= @user.address %></p>
+      <p style="text-align: justify;"><strong style="color:yellow;">Country: </strong><%= @user.country %></p>
+      <p style="text-align: justify;"><strong style="color:yellow;">City: </strong><%= @user.city %></p>
+      <p style="text-align: justify;"><strong style="color:yellow;">Phone Number:</strong> <%= @user.phone_number %></p>
+      <p style="text-align: justify;"><strong style="color:yellow;">Bullying Type: </strong><%= @user.bullying_type %></p>
+      <!-- Add an "Edit Profile" button to toggle between view and edit modes -->
+</div>
+<div class="description">
+<%if !@user.photo.key.blank? %>
+  <%= cl_image_tag @user.photo.key, class:"image" %>
+<%else %>
+  <%= image_tag "profile1.png", class:"rounded-circle" %>
+<%end%>
+<h3 class="username"> <strong><%= @user.username %> </strong></h3>
+</div>
+<div class="description" style="margin-left:50px">
+<h1 style=" display: flex; text-align: center; justify-content: center; color:yellow;" > About me </h1>
+<p class="desc">Hello i am hamza khalid i'm 23 years old i Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat sed saepe maxime. Laboriosam, magni facilis! Dolore, dolores earum! Ipsa tempore dolores inventore nesciunt maiores perspiciatis, voluptas placeat quia sunt aperiam.</p>
+</div>
+</div>
+
+</div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+.username{
+  font-family: 'Roboto Mono', monospace;
+  color:yellow;
+  padding: 20px;
+}
+.bbt{
+  width: 150px;
+}
+ .btnn {
+    width: 100%; /* Take up the full width of the container */
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Add some spacing */
+  }
+  /* Existing styles... */
+   body {
+    background-image: url(<%= asset_path("background_page.png") %>);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  font-family: 'Roboto Mono', monospace;
+  color: white;
+  }
+.desc{
+  padding-top: 7%;
+  display: flex;
+  text-align: justify;
+  justify-content: center
+}
+  .profile-card {
+    background-color: #181F6D;
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 20px; border: none;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow:  49px 49px 98px #c1c1c1,
+             -49px -49px 98px #ffffff;
+
+    align-items: center;
+    justify-content: center;
+  }
+  .edite{
+    margin-top: 20px;
+    border-radius: 6px;
+    color: white;
+  }
+  image{
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .description{
+   width: 50%; /* Each div takes up 50% of the container's width */
+   box-sizing: border-box; /* Include padding and border in the width */
+   border:none /* Add a border for visibility */
+   padding: 200px;
+   width: 500px;
+   margin-top: 4%; /* Add somepadding for spacing */
+  }
+  body{
+   font-size: 1rem;
+  }
+  html{
+     font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+   }
+   img{
+     width: 200px;
+     border-radius: 50%;
+     }
+</style>

@@ -1,0 +1,111 @@
+<div style="margin-left:385px;">
+  <h1 style="display: flex;text-align: center;justify-content: center;margin-top: 100px;">Your Profile</h1>
+    <h2 style="text-align: center;">Edit you profile </h2>
+<div style="background-color:#D2E3C8;" class="backgrnd">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs " style="display: flex; flex-direction: column; align-items: center;">
+        <div class="field" style="width: 500px;">
+          <%= f.label :email, class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.email_field :email, required: true, autofocus: true, class: "form-control" %>
+        </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p style="text-align: center;">Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+        <div class="field" style="width: 500px;">
+          <%= f.label :username, class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.text_field :username, class: "form-control" %>
+        </div>
+        <div class="field" style="width: 500px;">
+          <%= f.label :first_name, class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.text_field :first_name, class: "form-control" %>
+        </div>
+        <div class="field" style="width: 500px;">
+          <%= f.label :last_name, class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+        <div class="field" style="width: 500px;">
+          <%= f.label :address, class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+        <div class="field" style="width: 500px;">
+          <%= f.label :country, class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.text_field :country, class: "form-control" %>
+        </div>
+        <div class="field" style="width: 500px;">
+          <%= f.label :city, class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.text_field :city, class: "form-control" %>
+        </div>
+        <div class="field" style="width: 500px;">
+          <%= f.label :phone_number, class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.text_field :phone_number, class: "form-control" %>
+        </div>
+        <div class="field" style="width: 500px;">
+          <%= f.label :bullying_type, class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.text_field :bullying_type, class: "form-control" %>
+        </div>
+         <div class="field" style="width: 500px;">
+          <%= f.label :current_password, "Current Password", class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.password_field :current_password, hint: "we need your current password to confirm your changes", autocomplete: "current-password", class: "form-control" %>
+         </div>
+        <div class="field" style="width: 500px;">
+          <%= f.label :password, class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.password_field :password, hint: "leave it blank if you don't want to change it", autocomplete: "new-password", class: "form-control" %>
+        </div>
+        <div class="field" style="width: 500px;">
+          <%= f.label :password_confirmation, class: "form-label", style: "display: inline-block; margin-right: 40px;" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-actions" style="text-align: center;">
+        <%= f.button :submit, "Update", class: "btn btn-primary back" %>
+      </div>
+    <% end %>
+    <h3 style="text-align: center; margin-bottom: 20px;" class="cancel">Cancel my account</h3>
+    <div style="text-align: center; margin-bottom: 20px;  margin-top: 20px;">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger danger" %></div>
+    <div style=" margin-top: 20px;  display: flex; text-align: center; justify-content: center;">
+    <button class="botn">
+   <%= link_to "Back", :back, style: "color: white; text-decoration: none;", class:"bootn" %>
+    </button>
+    </div>
+    </div>
+  </div>
+<style>
+.back{
+  margin-top: 20px;
+ border-radius: 6px;
+ width: 100px;
+ margin-bottom: 20px;
+}
+.back:hover{
+  background-color: white;
+  color:#0275d8;
+  border:none;
+}
+.field{
+  margin-top: 40px;
+}
+.backgrnd{
+  width: 70%;
+  margin-left:15%;
+  border-radius: 10px;
+}
+.danger{
+color: white;
+border-radius: 6px;
+}
+.danger:hover{
+  background-color: white;
+  color: #D9534F;
+  border:none;
+}
+.botn{
+border:none;
+width: 100px;
+border-radius: 6px;
+background-color:#5cb85c;
+color: white;
+text-decoration: none;
+padding: 5px;
+}
+</style>

@@ -1,24 +1,38 @@
-<h1>New Channel</h1>
-<br>
+<style>
+  body {
+    background-image: url(<%= asset_path("sky.jpg") %>);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+  }
+</style>
+<div class="container-chatroom-new">
+<h1 class="chatroom-new-title">New Channel : </h1>
+
 <%= simple_form_for @chatroom do |f| %>
 <%= f.error_notification %>
-  <div class="row p-5 auth-div">
-  <div class="form-inputs ms-3">
+
+  <div class="form-inputs ">
+  <h6>Name :</h6>
     <%= f.input :name,
+                label: false,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "name", class: "form-control col-md-6 input-width" } %>
-    <h6>type: </h6>
+                placeholder: "Create a new ChatRoom ...",
+                input_html: { autocomplete: "name", class: "chatroom-new-input  rounded-pill" } %>
+    <h6>Type :</h6>
     <%= f.select :chatroom_type,
            options_for_select(["public", "private"]),
            { include_blank: true },
            required: true,
            autofocus: true,
-           input_html: { autocomplete: "chatroom_type" } %>
+           input_html: { autocomplete: "chatroom_type", class: "chatroom-new-selector " } %>
     </div>
 
-    <div class="form-actions ms-3 text-center">
-      <%= f.button :submit, "Create", class: "btn btn-primary" %>
+    <div class="form-actions ms-3 text-center ">
+      <%= f.button :submit, "Create", class: "btn btn-primary rounded-pill" %>
     </div>
     <% end %>
-  </div>
+
+</div>

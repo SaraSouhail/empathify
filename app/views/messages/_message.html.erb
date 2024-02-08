@@ -1,11 +1,25 @@
-<div class="chatroom-message" id="message-<%= message.id %>">
+<% if message.user == current_user %>
+<div class="chatroom-message-colored" id="message-<%= message.id %>">
+<i class="chatroom-date"><%= message.created_at.strftime("%a %b %e") %></i>
 
-<% if @previous_date != Date.today %>
-  <i class="chatroom-date"><%= Date.today.strftime("%a %b %e") %></i>
-  <% @previous_date = Date.today %>
-<% end %>
-  <p><strong><%= message.user.username %></strong>
-    <i><%= message.created_at.strftime("%l:%M %p") %></i></p>
-  <p class= "chatroom-content"><%= message.content %></p>
-<hr>
+  <div> <%= image_tag "profile img.avif",class: "chatroom-user-picture", alt: " member" %>
+  <%= link_to chatrooms_path do %>
+    <strong style="color: rgb(13, 180, 13);">Me</strong>
+  <% end %>
+    <i><%= message.created_at.strftime("%l:%M %p") %></i>
+  <p class= "chatroom-content" ><%= message.content.capitalize[0]%><%=message.content[1..-1] %></p> </div>
 </div>
+
+
+<% else %>
+<div class="chatroom-message" id="message-<%= message.id %>">
+<i class="chatroom-date"><%= message.created_at.strftime("%a %b %e") %></i>
+
+  <div> <%= image_tag "profile img.avif",class: "chatroom-user-picture", alt: "member" %>
+  <%= link_to chatrooms_path do %>
+  <strong><%= message.user.username %></strong>
+  <% end %>
+    <i><%= message.created_at.strftime("%l:%M %p") %></i>
+  <p class= "chatroom-content" ><%= message.content.capitalize[0]%><%=message.content[1..-1] %></p> </div>
+</div>
+<% end %>
