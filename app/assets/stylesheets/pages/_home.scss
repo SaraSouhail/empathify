@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 // navbar starts
-.navbar-lewagon {
+.navbar-lewagon-reda {
   justify-content: space-between;
   background: transparent;
   position: sticky;
@@ -9,10 +9,10 @@
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.navbar-lewagon .navbar-collapse {
+.navbar-lewagon-reda .navbar-collapse {
   flex-grow: 0;
 }
-.navbar-lewagon .navbar-brand img {
+.navbar-lewagon-reda .navbar-brand-reda .img-reda {
   margin-top: -23px;
   width: 148px;
 }
@@ -56,7 +56,7 @@
 .carousel-item {
   height: 500px;
 }
-.carousel-item img {
+.carousel-item .img-reda {
   height: 542px;
     margin-top: -26px;
     margin-left: -31px;
@@ -183,7 +183,7 @@ footer {
     overflow: hidden;
     padding-bottom: 91px;
 }
-.row{
+.row-reda{
   width:  900px;
   height:550px;
   border-radius: 10px;
@@ -205,7 +205,7 @@ footer {
   margin-left: 34px;
   padding-bottom: 120px;
 }
-img{
+.img-reda{
     width: 463px;
     position: absolute;
     top: 30px;
@@ -286,7 +286,7 @@ span a:hover{
     .side-image{
         border-radius: 10px 10px 0 0;
     }
-    img{
+    .img-reda{
         width: 35px;
         position: absolute;
         top: 20px;
