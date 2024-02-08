@@ -8,6 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 Chatroom.create(name: "general", chatroom_type: "public")
+Chatroom.create(name: "blogs", chatroom_type: "public")
+Chatroom.create(name: "news", chatroom_type: "public")
+Chatroom.create(name: "thread", chatroom_type: "thread")
 Chatroom.create(name: "Physical bullying", chatroom_type: "private")
 Chatroom.create(name: "Cyberbullying", chatroom_type: "private")
 Chatroom.create(name: "Verbal bullying", chatroom_type: "private")

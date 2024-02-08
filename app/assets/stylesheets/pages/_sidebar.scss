@@ -1,3 +1,4 @@
+
 .sidebar-menu {
   background-color: #18345E;
   border-right: 1px solid #e7e7e7;
@@ -11,7 +12,7 @@
   top: 0;
   left: 0;
   margin-top: 49px;
-  border-right: 1px solid white;
+
 }
 
 .sidebar-menu-item {
@@ -28,12 +29,13 @@
 
 .sidebar-menu-item:hover {
   cursor: pointer;
-  color:#b4d2f8;
+  color:yellow;
 }
 
-.sidebar-menu-options {
-  background-color: #4D6291;
+.sidebar-menu-options{
+  background-color: #ffffff;
   border-right: 1px solid #e7e7e7;
+  box-shadow: 5px 5px 5px rgb(100, 108, 121);
   padding: 0;
   width: 305px;
   float: left;
@@ -46,29 +48,42 @@
   margin-top: 49px;
   margin-left: 78px;
 
-}
 
+}
+a {
+  color: black;
+  text-decoration: none;
+
+}
 .sidebar-option-item {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   color: white;
   padding: 0 5px;
   margin-top: 10px;
   margin-left: 10px;
   h5 {
     color: #A6ABBD;
-
-
   }
 }
 
 .group-title{
   padding: 3px;
-  text-decoration: none;
+  color: black;
 }
 .group-title:hover {
   cursor: pointer;
-  background-color:#2b486d;
+  color: white;
+  background-color:#4385F5;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+}
+.group-name-toggle {
+  background-color: #2b486d;
+  border-radius: 10px;
+}
+
+.icon {
+  font-size: 24px;
+  margin: 10px;
 }
