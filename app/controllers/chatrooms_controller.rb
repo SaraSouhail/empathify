@@ -10,9 +10,13 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
-    @chatroom_name = @chatroom.name
+    @all_users = User.all
+    if  @chatroom.name == current_user.bullying_type
+      @users = User.where(bullying_type: current_user.bullying_type)
+    else
+      @users = User.all
+    end
   end
-
   def new
     @chatroom = Chatroom.new
   end

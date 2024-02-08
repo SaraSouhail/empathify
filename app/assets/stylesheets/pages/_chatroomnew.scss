@@ -1,0 +1,32 @@
+
+.container-chatroom-new{
+  margin-top: 170px;
+  max-width: fit-content;
+  margin-left: 720px;
+  background-color: var(--bs-body-bg);
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #f4fdff;
+  padding: 30px;
+  border: 2px solid #e4eaf9;
+  opacity: 0.9; // Adjust the opacity value as needed
+
+
+  .chatroom-new-title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: #0A1D56;
+  }
+  h6{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .chatroom-new-input{
+    border: 2px solid #265bfa;
+    background-color: white ;
+    width: 500px;
+    height: 50px;
+    margin-bottom: 20px;
+
+  }
+}

@@ -68,4 +68,135 @@ if (videoId) {
 
   }
 </style>
+
+<%else%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body >
+
+
+<div class="container main-content d-flex justify-content-center align-items-center class" style="
+    margin-top: 20px">
+  <div id="carouselExampleDark" class="carousel carousel-dark slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="5000">
+      <%= image_tag "slide_img1.png", class:"d-block w-100", alt:"..."%>
+
+    </div>
+    <div class="carousel-item" data-bs-interval="5000">
+      <%= image_tag "slide_img2.png", class:"d-block w-100", alt:"..."%>
+
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "slide_img3.png", class:"d-block w-100", alt:"..."%>
+
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"     style="
+    margin-left: -190px"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true" style="
+    margin-right: -190px"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+
+<section class="portfolio section-padding" id="portfolio">
+    <h1 class="title d-flex justify-content-center align-items-center text-align-center">How to Apply</h1>
+		<div class="container d-flex justify-content-center align-items-center">
+			<div class="row2 d-flex justify-content-center align-items-center">
+				<div class="card06 col-12 col-md-12 col-lg-3">
+					<div class="card05 text-light text-center  pb-2">
+						<div class="card-body text-dark" style ="height: 268px">
+
+							<h2 class="card-title">Welcome</h2>
+							<p class="lead">Just a fiew steps to join to our family</p><button class="btn   text-dark"></button>
+						</div>
+					</div>
+				</div>
+				<div class="card06 col-12 col-md-12 col-lg-3">
+					<div class="card05 text-light text-center  pb-2">
+						<div class="card-body text-dark" style ="height: 268px">
+
+							<h2 class="card-title"> Sing Up</h2>
+							<p class="lead">Complete the form</p>
+						</div>
+					</div>
+				</div>
+				<div class="card06 col-12 col-md-12 col-lg-3">
+					<div class="card05 text-light text-center  pb-2">
+						<div class="card-body text-dark" style ="height: 268px">
+
+							<h2 class="card-title">discover</h2>
+							<p class="lead">find a communitty</p><button class="btn text-dark"></button>
+						</div>
+					</div>
+				</div>
+        <div class="card06 col-12 col-md-12 col-lg-3">
+					<div class="card05 text-light text-center  pb-2">
+						<div class="card-body text-dark" style ="height: 268px">
+
+							<h2 class="card-title">Start Chat</h2>
+							<p class="lead">Enjoy</p><button class="btn text-dark"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<footer>
+    <div class="footer-content">
+        <p>Get the freshest Empathfiy news</p>
+        <form>
+            <input type="email" name="email" placeholder="Enter email here">
+            <button type="submit">Subscribe</button>
+        </form>
+        <p>© 2023 Empathify, LLC. All Rights Reserved.</p>
+    </div>
+    <div class="footer-links">
+        <ul>
+
+
+            <li><a href="#">Choose region</a></li>
+        </ul>
+        <ul>
+
+            <li><a href="#">Accessibility Statement
+
+            <li><a href="#">Marketing to Children</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+        </ul>
+
+    </div>
+</footer>
+</body>
+<style>
+
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  var myCarousel = document.querySelector('#carouselExampleDark')
+  var carousel = new bootstrap.Carousel(myCarousel, {
+    interval: 5000,
+    ride: 'carousel'
+  })
+})
+</script>
+</html>
 <%end%>

@@ -1,35 +1,46 @@
 <h1 style="margin-left: 900px; margin-top: 100px;">Users</h1>
-<div class="container">
+<div class="container users-container">
   <div class="row">
     <% @users.each do |user| %>
-      <div class="col-lg-4  user-container">
-        <div class="d-flex">
-        <div class="profile-pic"><%= image_tag "sky.jpg", class: "rounded-circle",style:"width:50px; height:50px;" %></div>
-        <div class="user-infos">
-          <%= link_to user_path(user) do %>
-            <h5 class="text-primary"><%= user.username %></h5>
-          <% end %>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, amet?</p>
+      <div class="col-xl-4">
+        <div class="user-container">
+          <div class="d-flex">
+            <div class="profile-pic">
+              <%= image_tag "sky.jpg", class: "rounded-circle", style: "width:50px; height:50px;" %>
+            </div>
+            <div class="user-infos">
+              <%= link_to user_path(user) do %>
+                <h5 class="text-primary" style="margin-bottom: 12px"><%= user.username %></h5>
+              <% end %>
+              <h6><strong>Country:</strong>  <%= user.country %></h6>
+              <h6><strong>City:</strong>  <%= user.city %></h6>
+              <h6><strong>Issue:</strong>  <%= user.bullying_type %></h6>
+            </div>
+          </div>
+          <button class="btn btn-primary add-friend">Add friend</button>
         </div>
-        </div>
-        <button class="btn btn-primary add-friend">Add friend</button>
       </div>
     <% end %>
   </div>
 </div>
+
+
+
+
 <style>
+
   .user-container {
-    margin-right: 20px;
-    background-color: #fafafa;
-    border: 1px solid #4385f5;
-    border-radius: 10px;
-    width: 300px;
-    padding: 10px;
-
-  }
-
-  .container {
-    margin-left: 400px;
+  margin-right: 10px; /* or 5px */
+  margin-bottom: 14px;
+  background-color: #fafafa;
+  border: 1px solid #4385f5;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 10px;
+}
+  .users-container {
+    padding-left: 385px;
   }
 
   .profile-pic {
@@ -39,6 +50,7 @@
   .add-friend {
     width: 250px;
     margin-left: 14px;
+    border: none;
     border-radius: 7px;
   }
   .add-friend:hover {
@@ -46,4 +58,5 @@
     color: #4385f5;
     border: none;
   }
+
 </style>
