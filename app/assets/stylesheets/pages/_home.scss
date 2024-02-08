@@ -1,1 +1,425 @@
 // Specific CSS for your home-page
+// navbar starts
+.navbar-lewagon {
+  justify-content: space-between;
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+.navbar-lewagon .navbar-brand img {
+  margin-top: -23px;
+  width: 148px;
+}
+.nav-link {
+  margin-right: 20px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+.nav-link:hover {
+  color: yellow;
+  transition: color 0.2s ease-in-out;
+}
+.navbar {
+  position: fixed;
+  top:0;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  z-index: 10;
+}
+.btn-outline-success {
+  color: #45376C;
+  border-color: #45376C;
+}
+.btn-outline-success:hover {
+  background-color: #45376C;
+  color: white;
+}
+.form-control {
+  border-radius: 50px;
+}
+// navbar ends
+
+// carousel starts
+.carousel {
+  width: 80%;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.carousel-item {
+  height: 500px;
+}
+.carousel-item img {
+  height: 542px;
+    margin-top: -26px;
+    margin-left: -31px;
+}
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 100px;
+}
+.carousel-caption h5 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+//card starts
+.portfolio .card {
+	box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+}
+.team .card {
+	box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+}
+.services .card-body i {
+	font-size: 50px;
+}
+.team .card-body i {
+	font-size: 20px;
+}
+//card ends
+
+
+
+// carousel ends
+//footer starts
+footer {
+  position: absolute;
+  bottom: -614px;
+  width: 100%;
+  background-color: #181F6D;
+  padding: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  color:white;
+}
+
+.footer-content p {
+  margin-bottom: 10px;
+}
+
+.footer-content form {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.footer-content input[type="email"] {
+  border: none;
+  border-radius: 5px 0 0 5px;
+  padding: 10px;
+  flex-grow: 1;
+}
+
+.footer-content button[type="submit"] {
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 10px;
+  background-color: #006dc6;
+  color: #fff;
+  cursor: pointer;
+}
+
+.footer-links {
+  display: flex;
+}
+
+.footer-links ul {
+  list-style-type: none;
+  margin-right: 20px;
+}
+
+.footer-links li {
+  margin-bottom: 5px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+
+
+
+//footer ends
+
+/* POPPINS FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.wrapper{
+
+    padding: 0 20px 0 20px;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.side-image{
+    background-image: url("images/2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px 0 0 10px;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 91px;
+}
+.row{
+  width:  900px;
+  height:550px;
+  border-radius: 10px;
+  background: #fff;
+  padding: 0px;
+  box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+.right{
+  display: flex;
+  justify-content: center;
+  margin-top: 44px;
+  position: relative;
+  padding-bottom: 110px;
+}
+.input-box{
+  width: 330px;
+  box-sizing: border-box;
+  margin-left: 34px;
+  padding-bottom: 120px;
+}
+img{
+    width: 463px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+.input-box header{
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 45px;
+}
+.input-field{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 10px 0 10px;
+}
+.input{
+    height: 45px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    margin-bottom: 20px;
+    color: #40414a;
+}
+.input-box .input-field label{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-field input:focus ~ label
+   {
+    top: -10px;
+    font-size: 13px;
+  }
+  .input-field input:valid ~ label
+  {
+   top: -10px;
+   font-size: 13px;
+   color: #5d5076;
+ }
+ .input-field .input:focus, .input-field .input:valid{
+    border-bottom: 1px solid #743ae1;
+ }
+ .submit{
+  border: none;
+  outline: none;
+  height: 42px;
+  background: #ececec;
+  border-radius: 35px;
+  transition: .4s;
+  width: 109px;
+ }
+ .submit:hover{
+    background: rgba(37, 95, 156, 0.937);
+    color: #fff;
+ }
+ .signin{
+    text-align: center;
+    font-size: small;
+    margin-top: 25px;
+}
+span a{
+    text-decoration: none;
+    font-weight: 700;
+    color: #000;
+    transition: .5s;
+}
+span a:hover{
+    text-decoration: underline;
+    color: #000;
+}
+
+@media only screen and (max-width: 768px){
+    .side-image{
+        border-radius: 10px 10px 0 0;
+    }
+    img{
+        width: 35px;
+        position: absolute;
+        top: 20px;
+        left: 47%;
+    }
+    .text{
+        position: absolute;
+        top: 70%;
+        text-align: center;
+    }
+    .text p, i{
+        font-size: 16px;
+    }
+    .row{
+        max-width:420px;
+        width: 100%;
+    }
+}
+
+.paswf{
+text-align: center;
+text-decoration: none;
+color: black;
+}
+.paswf a{
+  text-decoration: none;
+  color: black;
+  }
+.paswf:hover{
+text-decoration: underline;
+}
+
+.m-auto {
+text-align: center;
+
+}
+.container-fluid{
+  margin: 10px;
+}
+
+//singin ends
+.input-singin{
+  height: 100%;
+  overflow: scroll;
+  padding: 8px;
+}
+//singin ends
+
+.slc-bullying{
+  margin-left: 58px;
+}
+.user_phone_number{
+  margin-top: 22px;
+}
+
+//card starts
+.row2{
+  width: 1309px;
+    height: 550px;
+    border-radius: 10px;
+    // background: #fff;
+    // padding: 0px;
+    // box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.card05{
+  margin-right: 20px;
+  margin-left: -7px;
+  width: 290px;
+  background-color:#181F6D;;
+  padding: 71px;
+  border-radius: 14px;
+  box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.4);
+
+}
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+.card-title{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: yellow;;
+}
+.lead{
+  color: white;
+}
+.card06{
+  padding: 25px;
+}
+
+.title{
+  color: black;
+
+  font-weight: bold;
+  margin-top: 22px;
+  position: absolute;
+  margin-left: 720px;
+}
+
+body {
+  background: url('background_page.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.btn2{
+  background-color: yellow;
+  color:black;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.btn2:hover{
+  background-color: #45376C;
+  color: yellow;
+  transition: background-color 0.2s ease-in-out;
+}
+
+
+
+//card ends
