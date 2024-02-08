@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'chatrooms/show'
   devise_for :users
   root to: "pages#home"
+  get 'about', to: 'pages#about', as: :about
   resources :chatrooms, only: [:index, :show, :new, :create] do
     resources :messages, only: :create
   end
