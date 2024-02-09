@@ -1,5 +1,5 @@
 <div style="margin-left: 385px;">
-  <h1>All My Appointments</h1>
+  <h1 class="hamza">My Appointements:</h1>
   <div class="card-container d-flex flex-wrap justify-content-center">
     <% if @appointements.empty? %>
       <h3>No appointments exist</h3>
@@ -59,9 +59,28 @@ body{
   justify-content: center;
   align-items: center;
   border-radius: 6px;
+  margin-bottom: 40px;
 }
 .danger{
 margin-top: 10px;
 border-radius:6px;
+}
+
+.hamza{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 80px;
+  margin-left: 390px;
+
+  font-size: 36px;
+    font-weight: bold;
+    width: fit-content;
+    box-shadow: rgb(195, 195, 195) 3px 3px 3px;
+    background-color: #fafafa;
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #00257F;
+    text-align: center;
 }
 </style>

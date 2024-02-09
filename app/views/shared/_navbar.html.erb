@@ -39,6 +39,7 @@
 <div class="d-flex" style="margin-right: 385px">
 
 <div class="sidebar-menu" style="background-color: #181F6D">
+<div style="margin-top:40px">
 <%= link_to root_path, class: "nav-link", title:"Home" do%>
   <div class="sidebar-menu-item d-flex">
     <i class="fa-solid fa-home mb-3 fa-2x" style="<%= request.path == root_path ? 'color: yellow;' : nil %>"></i>
@@ -68,9 +69,9 @@
   <i class="fa-solid fa-circle-plus mb-3 fa-2x" style="<%= request.path == new_chatroom_path ? 'color: yellow;' : nil %>"></i>
   </div>
   <%end%>
-
-  <div class="sidebar-menu-item" style="margin-top: 300px">
-  <i class="fa-solid fa-user mb-3 fa-2x ms-1" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Profile"></i>
+</div>
+  <div class="sidebar-menu-item" style="margin-top: 300px;`">
+  <i class="fa-solid fa-user mb-3 fa-2x ms-1" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Profile" style=" padding-left: 20px"></i>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", profile_path , class: "dropdown-item ms-1 p-1" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item ms-1 p-1" %>
@@ -105,11 +106,13 @@
 <% else %>
 
 <nav>
-  <div class="navbar navbar-expand-sm navbar-dark navbar-lewagon navbar-lewagon-reda p-0" style="background-color: #181F6D">
+  <div class="navbar navbar-expand-sm navbar-dark navbar-lewagon navbar-lewagon-reda p-0" style="background-color: #181F6D; margin-bottom:">
 
   <div class="container-fluid" >
   <div class="logo">
-  <%= image_tag "logo-no-background.png", style:"width: 150px", class: "d-inline-block align-top", alt: "logo" %>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "logo-no-background.png", style:"width: 150px", class: "d-inline-block align-top", alt: "logo" %>
+  <% end %>
   </div>
 
 
@@ -124,9 +127,7 @@
         <li class="nav-item">
           <%= link_to "About Us", about_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Customize", "#", class: "nav-link" %>
-        </li>
+
       </ul>
 
 

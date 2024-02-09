@@ -3,7 +3,7 @@
 <i class="chatroom-date"><%= message.created_at.strftime("%a %b %e") %></i>
 
   <div> <%= image_tag "profile img.avif",class: "chatroom-user-picture", alt: " member" %>
-  <%= link_to chatrooms_path do %>
+  <%= link_to profile_path do %>
     <strong style="color: rgb(13, 180, 13);">Me</strong>
   <% end %>
     <i><%= message.created_at.strftime("%l:%M %p") %></i>
@@ -16,7 +16,7 @@
 <i class="chatroom-date"><%= message.created_at.strftime("%a %b %e") %></i>
 
   <div> <%= image_tag "profile img.avif",class: "chatroom-user-picture", alt: "member" %>
-  <%= link_to chatrooms_path do %>
+  <%= link_to user_path(message.user) do %>
   <strong><%= message.user.username %></strong>
   <% end %>
     <i><%= message.created_at.strftime("%l:%M %p") %></i>
