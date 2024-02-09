@@ -1,4 +1,4 @@
-<h1 style="margin-left: 900px; margin-top: 100px;">Users</h1>
+<h1 class="page-header">Users:</h1>
 <div class="container users-container">
   <div class="row">
     <% @users.each do |user| %>
@@ -41,6 +41,19 @@
 }
   .users-container {
     padding-left: 385px;
+  }
+
+  .page-header {
+    margin-top: 80px;
+    margin-left: 500px;
+    font-size: 36px;
+    font-weight: bold;
+    width: fit-content;
+    box-shadow: rgb(195, 195, 195) 3px 3px 3px;
+    background-color: #fafafa;
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #00257F;
   }
 
   .profile-pic {

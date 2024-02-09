@@ -22,8 +22,11 @@
 
                    </div>
                    <div style=" padding-bottom: 110px;">
+
                    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|  %>
                    <%= f.error_notification %>
+  <%= f.input :image, as: :file %>
+
                     <%= f.input :first_name,
                 required: true,
                 autofocus: true,
@@ -46,14 +49,18 @@
                  <%= f.label :bullying_type %>
 
     <%= f.select :bullying_type,
-             options_for_select(["General", "Physical Bullying", "Verbal Bullying", "Social Bullying", "Cyberbullying"], selected: f.object.bullying_type ),
+             options_for_select(["General", "Physical Bullying", "Verbal Bullying", "Social Bullying", "Cyberbullying", "Harassment"], selected: f.object.bullying_type ),
 
            { include_blank: true },
            required: true,
            autofocus: true,
            class: "slc-bullying",
            input_html: { autocomplete: "bullying_type" } %>
-
+    <%= f.input :description,
+                required: true,
+                as: :text,
+                class: "p-4 mt-3",
+                input_html: { autocomplete: "phone_number" }%>
     <%= f.input :phone_number,
                 required: true,
                 class: "phone",

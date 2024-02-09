@@ -6,7 +6,6 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .navbar-lewagon-reda .navbar-collapse {
@@ -49,7 +48,7 @@
 // carousel starts
 .carousel {
   width: 80%;
-  margin: 20px auto;
+  margin: 30px auto;
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -93,7 +92,7 @@
 //footer starts
 footer {
   position: absolute;
-  bottom: -614px;
+  bottom: -680px;
   width: 100%;
   background-color: #181F6D;
   padding: 45px;
@@ -104,6 +103,7 @@ footer {
 }
 
 .footer-content {
+
   display: flex;
   flex-direction: column;
   color:white;
@@ -125,6 +125,15 @@ footer {
   flex-grow: 1;
 }
 
+.btnn{
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background-color: #006dc6;
+  color: #fff;
+  cursor: pointer;
+  height: 47px;
+  margin-top: 11px;
+}
 .footer-content button[type="submit"] {
   border: none;
   border-radius: 0 5px 5px 0;
@@ -370,10 +379,10 @@ text-align: center;
   margin-bottom: 20px;
 
 }
-.card-title{
+.card-title {
   font-size: 20px;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 10px;
   color: yellow;;
 }
@@ -385,12 +394,14 @@ text-align: center;
 }
 
 .title{
-  color: black;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 43px auto;
+ color: black;
+ font-weight: bold;
 
-  font-weight: bold;
-  margin-top: 22px;
-  position: absolute;
-  margin-left: 720px;
+
 }
 
 body {

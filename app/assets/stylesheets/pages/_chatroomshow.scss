@@ -86,7 +86,7 @@
 
     .chatroom-message {
       margin-bottom:15px ;
-      width: 1150px;
+      width: 1100px;
       padding: 10px;
       border-radius: 15px;
       box-shadow: 5px 5px 5px #c3c3c3;
@@ -97,8 +97,8 @@
       }
     }
     .chatroom-message-colored {
-      margin-bottom:15px ;
-      width: 1150px;
+      margin-bottom:15px;
+      width: 1100px;
       padding: 10px;
       border-radius: 15px;
       box-shadow: 5px 5px 5px #c3c3c3;
@@ -129,12 +129,13 @@
     position: fixed;
     bottom: 0;
     padding: 5px;
-    background-color: var(--bs-body-bg);
-    margin-left: -10px;
+
+    margin-left: -9px;
+    border-radius:15px ;
 
     .chatroom-input-message{
       margin-top: 10px;
-      width: 1090px;
+      width: 1030px;
       height: 70px;
       background-color: white;
 
