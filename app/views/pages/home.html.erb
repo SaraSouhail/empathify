@@ -2,11 +2,11 @@
 
 <div class="video-wrapper today-container today-container today-video-container text-center">
   <h3><i class="fa-solid fa-play" style="color: #F9F871;"></i>  Video of today: </h3>
-    <a class="video-link ps-4 mb-3" href="https://www.youtube.com/watch?v=7oKjW1OIjuw" target="_blank">
-       <center><img class="video-thumbnail" src="https://img.youtube.com/vi/7oKjW1OIjuw/mqdefault.jpg" alt="Video Thumbnail"></center>
+    <a class="video-link ps-4 mb-3" href="https://www.youtube.com/watch?v=tJsGGsPNakw&t=4s&ab_channel=FightChildAbuse" target="_blank">
+       <center><img class="video-thumbnail" alt="Video Thumbnail"></center>
         <span class="play-button">&#9658;</span>
     </a>
-    <a class="today-video-link ps-4 text-decoration-none"  id="video-link" href="https://www.youtube.com/watch?v=ppSYMGpWgkY" target="_blank"></a>
+    <a class="today-video-link ps-4 text-decoration-none"  id="video-link" href="https://www.youtube.com/watch?v=tJsGGsPNakw&t=4s&ab_channel=FightChildAbuse" target="_blank"></a>
     <hr>
     <h3><i class="fa-brands fa-readme" style="color: #F9F871;"></i> Article of today: </h3>
     <a class="today-video-link ps-4 text-decoration-none" href="https://www.stopbullying.gov/blog/2021/07/29/preventing-cyberbullying-age-smart-phones" target="_blank"> Preventing Cyberbullying in the Age of Smart Phones</a>
@@ -37,12 +37,25 @@ async function getVideoTitle(videoId, apiKey) {
   }
 }
 
+function getYouTubeThumbnail(videoId, quality) {
+  const baseUrl = 'https://i.ytimg.com/vi/';
+  const endUrl = quality === 'maxres' ? '/maxresdefault.jpg' : '/hqdefault.jpg';
+  const thumbnailUrl = baseUrl + videoId + endUrl;
+  console.log('Thumbnail URL:', thumbnailUrl);
+  const videoThumbnail = document.querySelector('.video-thumbnail');
+  console.log('Video Thumbnail:', videoThumbnail);
+  videoThumbnail.src = thumbnailUrl;
+  return thumbnailUrl;
+}
+
 // Example usage
-const youtubeUrl = "https://www.youtube.com/watch?v=7oKjW1OIjuw";
+const youtubeUrl = "https://www.youtube.com/watch?v=tJsGGsPNakw&t=4s&ab_channel=FightChildAbuse";
 const apiKey = "AIzaSyDSWrwoxw6A84_Z_xfYPyj5WN4miTtutqA";
+const quality = 'hqdefault';
 
 const videoId = extractVideoId(youtubeUrl);
 if (videoId) {
+  getYouTubeThumbnail(videoId, quality)
   getVideoTitle(videoId, apiKey)
     .then(title => {
       if (title) {
