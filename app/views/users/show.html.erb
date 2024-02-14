@@ -16,7 +16,7 @@
 <%if !@user.photo.key.blank? %>
   <%= cl_image_tag @user.photo.key, class:"image" %>
 <%else %>
-  <%= image_tag "profile1.png", class:"rounded-circle" %>
+  <%= image_tag "user blank.png", class:"rounded-circle" %>
 <%end%>
 <h3 class="username"> <strong><%= @user.username %> </strong></h3>
 </div>

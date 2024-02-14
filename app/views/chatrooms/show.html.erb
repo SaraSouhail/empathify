@@ -43,7 +43,13 @@
   <div class="users-chatroom">
     <% @users.each do |user| %>
       <div class="chatroom-user">
-        <div class="img-popup"><%= image_tag "profile img.avif", alt: "all members" %></div>
+        <div class="img-popup">
+        <% if user.photo.key.nil?%>
+            <%= image_tag "user blank.png", alt: "all members" %>
+          <% else %>
+            <%= cl_image_tag user.photo.key%>
+          <%end%>
+        </div>
         <div class="username-session-popup">
         <%= link_to user_path(user) do %>
           <strong class="username-popup"><%= user.username %></strong>
