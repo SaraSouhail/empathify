@@ -2,7 +2,12 @@
 <div class="chatroom-message-colored" id="message-<%= message.id %>">
 <i class="chatroom-date"><%= message.created_at.strftime("%a %b %e") %></i>
 
-  <div> <%= image_tag "profile img.avif",class: "chatroom-user-picture", alt: " member" %>
+  <div>
+  <% if current_user.photo.key.nil?%>
+      <%= image_tag "user blank.png",class: "chatroom-user-picture", alt: " member" %>
+    <% else %>
+      <%= cl_image_tag current_user.photo.key,class: "chatroom-user-picture"%>
+    <%end%>
   <%= link_to profile_path do %>
     <strong style="color: rgb(13, 180, 13);">Me</strong>
   <% end %>
@@ -15,7 +20,12 @@
 <div class="chatroom-message" id="message-<%= message.id %>">
 <i class="chatroom-date"><%= message.created_at.strftime("%a %b %e") %></i>
 
-  <div> <%= image_tag "profile img.avif",class: "chatroom-user-picture", alt: "member" %>
+  <div>
+  <% if message.user.photo.key.nil?%>
+      <%= image_tag "user blank.png",class: "chatroom-user-picture", alt: " member" %>
+    <% else %>
+      <%= cl_image_tag message.user.photo.key,class: "chatroom-user-picture"%>
+    <%end%>
   <%= link_to user_path(message.user) do %>
   <strong><%= message.user.username %></strong>
   <% end %>

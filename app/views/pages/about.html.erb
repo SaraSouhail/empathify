@@ -58,13 +58,29 @@
 
 .card-image0 img {
     width: 100%;
-    transform: scale(1.2);
     border-radius: 50%;
-    transition: transform 0.4s;
-    margin-top: -18px;
-    margin-left: -25px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.card-image01 {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.5),
+    0 5px 20px 0 rgba(0, 0, 0, 0.1);
 
+}
+.card-image01 img {
+
+    width: 100%;
+}
 p {
     line-height: 24px;
     letter-spacing: 0.5px;
@@ -187,7 +203,7 @@ padding-top:70px;
         </div>
     </div>
   <div class="card0 col-sm-4">
-        <div class="card-image0">
+        <div class="card-image01">
             <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1702544790/nrbofagjuvcsstqe189u.jpg " style="margin-top:10px">
         </div>
         <p class="name0">hamza</p>
