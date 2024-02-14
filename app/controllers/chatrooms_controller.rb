@@ -24,7 +24,7 @@ class ChatroomsController < ApplicationController
   def create
     @chatroom = Chatroom.new(chatroom_params)
     @chatroom.save!
-    redirect_to chatrooms_path
+    redirect_to chatroom_path(@chatroom)
   end
 
   private
