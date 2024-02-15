@@ -58,7 +58,7 @@
 
 .card-image0 img {
     width: 100%;
-    border-radius: 50%;
+
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -78,7 +78,6 @@
 
 }
 .card-image01 img {
-
     width: 100%;
 }
 p {
@@ -123,12 +122,16 @@ button i {
 }
 
 /* Social media colors */
-button.github0 {
-    background-color: #24292e;
+.github00 {
+    background-color: #4B0082;
 
 }
-button.slack0 {
-    background-color: #24292e;
+.slack00 {
+    background-color:red ;
+
+}
+.linkedin00{
+  background-color: #0077b5;
 
 }
 
@@ -166,58 +169,86 @@ padding-top:70px;
 
     <div class="card0 col-sm-4">
         <div class="card-image0">
-            <img src="https://avatars.githubusercontent.com/u/153181073?s=400&u=d2c558739fbfac4693b590f6a43a771c6367e2b5&v=4" class alt="Profile image">
+            <img src="https://avatars.githubusercontent.com/u/153181073?s=400&u=d2c558739fbfac4693b590f6a43a771c6367e2b5&v=4" class alt="Profile image", title="Reda Aboulouafa">
         </div>
-        <p class="name0">Reda</p>
-        <p>UX / UI developer</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur delectus, mollitia tenetur libero quam recusandae alias in incidunt.</p>
+        <p class="name0">Reda Aboulouafa</p>
+        <p>Full Stack Developer</p>
+        <p>fff</p>
         <div class="socials0">
-            <button class="github0"><i class="fab fa-github"></i></button>
-            <button class="slack0"><i class="fa-brands fa-slack"></i></button>
+            <a href="https://github.com/redaabou" target="_blank">
+              <button class="github00"><i class="fab fa-github"></i></button>
+            </a>
+            <a href="https://lewagon-alumni.slack.com/team/U0693R7LGET" target="_blank">
+            <button class="slack00"><i class="fa-brands fa-slack"></i></button>
+             </a>
+            <a href="https://www.linkedin.com/in/reda-aboulouafa-993a11220/" target="_blank">
+            <button class="linkedin00"><i class="fa-brands fa-linkedin"></i></button>
+             </a>
         </div>
     </div>
 
     <div class="card0 col-sm-4">
         <div class="card-image0">
-            <img src="https://avatars.githubusercontent.com/u/127333635?v=4" alt="Profile image">
+            <%= image_tag "sara image.png", alt: "hamza image" ,title:"Sara Souhail"%>
         </div>
-        <p class="name0">sara</p>
-        <p>Front-End developer</p>
+        <p class="name0">Sara Souhail</p>
+        <p>Full Stack Developer</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur delectus, mollitia tenetur libero quam recusandae alias in incidunt.</p>
         <div class="socials0">
-            <button class="github0"><i class="fab fa-github"></i></button>
-            <button class="slack0"><i class="fa-brands fa-slack"></i></button>
+            <a href="https://github.com/SaraSouhail" target="_blank">
+              <button class="github00"><i class="fab fa-github"></i></button>
+            </a>
+            <a href="https://lewagon-alumni.slack.com/team/U069J8HQK7C" target="_blank">
+            <button class="slack00"><i class="fa-brands fa-slack"></i></button>
+             </a>
+            <a href="https://www.linkedin.com/in/sara-souhail-748b73232/" target="_blank">
+            <button class="linkedin00"><i class="fa-brands fa-linkedin"></i></button>
+             </a>
         </div>
     </div>
 
     <div class="card0 col-sm-4">
         <div class="card-image0">
-            <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1702544743/xihr9x4xwxwfo2utavag.jpg" alt="Profile image">
+            <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1702544743/xihr9x4xwxwfo2utavag.jpg" alt="Profile image" title="Anass Najam">
         </div>
-        <p class="name0">anass</p>
-        <p>Back-End developer</p>
+        <p class="name0">Anass Najam</p>
+        <p>Full Stack Developer</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur delectus, mollitia tenetur libero quam recusandae alias in incidunt.</p>
         <div class="socials0">
-            <button class="github0"><i class="fab fa-github"></i></button>
-            <button class="slack0"><i class="fa-brands fa-slack"></i></button>
+            <a href="https://github.com/AnsNjm" target="_blank">
+              <button class="github00"><i class="fab fa-github"></i></button>
+            </a>
+            <a href="https://lewagon-alumni.slack.com/team/U069BHAFC5C" target="_blank">
+            <button class="slack00"><i class="fa-brands fa-slack"></i></button>
+             </a>
+            <a href="https://www.linkedin.com/in/anass-najam-809937199/" target="_blank">
+            <button class="linkedin00"><i class="fa-brands fa-linkedin"></i></button>
+             </a>
         </div>
     </div>
   <div class="card0 col-sm-4">
         <div class="card-image01">
-            <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1702544790/nrbofagjuvcsstqe189u.jpg " style="margin-top:10px">
+        <%= image_tag "hamza image.png", alt: "hamza image" ,title:"Hamza Khalid"%>
         </div>
-        <p class="name0">hamza</p>
-        <p>Back-End developer</p>
+        <p class="name0">Hamza Khalid</p>
+        <p>Full Stack Developer</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur delectus, mollitia tenetur libero quam recusandae alias in incidunt.</p>
         <div class="socials0">
-            <button class="github0"><i class="fab fa-github"></i></button>
-            <button class="slack0"><i class="fa-brands fa-slack"></i></button>
+            <a href="https://github.com/hamzakhalid14" target="_blank">
+              <button class="github00"><i class="fab fa-github"></i></button>
+            </a>
+            <a href="https://lewagon-alumni.slack.com/team/U069J6QHV7C" target="_blank">
+            <button class="slack00"><i class="fa-brands fa-slack"></i></button>
+             </a>
+            <a href="https://www.linkedin.com/in/hamza-khalid-725615209/" target="_blank">
+            <button class="linkedin00"><i class="fa-brands fa-linkedin"></i></button>
+             </a>
         </div>
     </div>
     </div>
 
     <div class="containerimg">
-    <%= image_tag "lewagon_jobintech.png", style:"       width: 1003px;
+    <%= image_tag "lewagon_jobintech.png", style:" width: 1003px;
     height: 464px;
     margin-top: 13px;
     margin-left: 264px;",  alt: "logo" %>
