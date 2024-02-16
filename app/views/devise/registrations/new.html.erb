@@ -25,7 +25,8 @@
 
                    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|  %>
                    <%= f.error_notification %>
-  <%= f.input :image, as: :file %>
+
+  <%= f.input :photo, as: :file %>
 
                     <%= f.input :first_name,
                 required: true,
@@ -59,8 +60,8 @@
     <%= f.input :description,
                 required: true,
                 as: :text,
-                class: "p-4 mt-3",
-                input_html: { autocomplete: "phone_number" }%>
+                class: "p-4 mt-3 mb-3",
+                input_html: { autocomplete: "description" }%>
     <%= f.input :phone_number,
                 required: true,
                 class: "phone",
