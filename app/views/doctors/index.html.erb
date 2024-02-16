@@ -5,9 +5,10 @@
     <div class="card me-3" style="width: 18rem; background-color: #0A1D56; color: white; height: 600px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); border :none;">
     <div><%= image_tag "doc.png", class:"card-img-top hell", alt:"Doctor Profile Image"%></div>
       <div class="card-body d-flex flex-column justify-content-end">
-        <h4 class="card-title text-success"><%= doctor.first_name  %></h4>
-        <p class="card-text"><strong><%= doctor.field %></strong></p>
-        <p class="card-text"><strong><%= doctor.experience_years %></strong> years of experience</p>
+        <h4 class="card-title text-success"><%= doctor.first_name %> <%= doctor.last_name %></h4>
+        <p class="card-text">👨‍⚕️ field: <strong><%= doctor.field %></strong></p>
+        <p class="card-text">☎ Phone: <strong><%= doctor.phone_number%></strong></p>
+        <p class="card-text">👜 <strong><%= doctor.experience_years %></strong> years of experience</p>
        <button id="BOTONA" class="btn btn-primary align-self-center mt-3 heloo" style="background-color: #007BFF; border-radius: 5px;" onclick="toggleForm(<%= doctor.id %>, this)">
          Make appointment
        </button>
