@@ -6,6 +6,21 @@ export default class extends Controller {
   static targets = ["messages"]
 
   connect() {
+    const users_chatroom = document.querySelector(".chatroom-users-pic-count");
+
+    users_chatroom.addEventListener("click", (event) => {
+    const users = document.querySelector(".container-users-chatroom");
+    users.style.display = "block";
+    });
+
+    const close_btn = document.querySelector("#close-btn");
+    close_btn.addEventListener("click", (event) => {
+      const users = document.querySelector(".container-users-chatroom");
+      console.log("close btn is clicked");
+      users.style.display = "none";
+    });
+
+
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }

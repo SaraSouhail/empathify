@@ -11,7 +11,6 @@ User.destroy_all
 Doctor.destroy_all
 Chatroom.destroy_all
 
-
 Chatroom.create(name: "general", chatroom_type: "public")
 Chatroom.create(name: "blogs", chatroom_type: "public")
 Chatroom.create(name: "news", chatroom_type: "public")
