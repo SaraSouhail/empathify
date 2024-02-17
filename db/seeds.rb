@@ -7,6 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+User.destroy_all
+Doctor.destroy_all
+Chatroom.destroy_all
+
 
 Chatroom.create(name: "general", chatroom_type: "public")
 Chatroom.create(name: "blogs", chatroom_type: "public")
